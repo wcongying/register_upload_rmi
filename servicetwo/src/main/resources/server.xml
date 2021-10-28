@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 服务端 -->
+	<bean id="UserServiceImpl" class="com.nicole.service.impl.UserServiceImpl"></bean>
+
+	<!-- 使用RmiServiceExporter将RMIServiceImpl的对象导出为RMI服务对象 -->
+	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<!--服务的接口类型-->
+		<property name="serviceInterface" value="com.nicole.service.UserService"/>
+		<!--对外的名称，即客户端访问时用这个名字找到这个服务-->
+		<property name="serviceName" value="servicetwo"/>
+		<!--服务占用的端口-->
+		<property name="registryPort" value="7020"/>
+		<!--<property name="servicePort" value="7010"/>-->
+		<!--要发布成服务的类-->
+		<property name="service" ref="UserServiceImpl"/>
+	</bean>
+           
+</beans>

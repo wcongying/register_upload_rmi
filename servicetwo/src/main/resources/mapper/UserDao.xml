@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nicole.dao.UserDao">
+    <resultMap id="BaseResultMap" type="com.nicole.entity.User">
+        <!--@Table user-->
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="createdAt" column="created_at" jdbcType="BIGINT"/>
+        <result property="updatedAt" column="updated_at" jdbcType="BIGINT"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="cellphone" column="cellphone" jdbcType="VARCHAR"/>
+        <result property="imageurl" column="imageurl" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, imageurl, username, email, cellphone, password, created_at, updated_at
+  </sql>
+
+    <insert id="insertUser" parameterType="com.nicole.entity.User">
+        insert into user (imageurl, username,
+                          email, cellphone, password,
+                          created_at, updated_at)
+        values (#{imageurl,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+                #{createdAt,jdbcType=BIGINT}, #{updatedAt,jdbcType=BIGINT})
+    </insert>
+
+    <select id="selectUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where username = #{username,jdbcType=VARCHAR} or
+              email=#{username,jdbcType=VARCHAR} or cellphone=#{username,jdbcType=VARCHAR}
+    </select>
+
+
+    <update id="uploadImageurl" parameterType="com.nicole.entity.User">
+        update user set imageurl=#{imageurl,jdbcType=VARCHAR}
+        where username = #{username,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30" strict="true" schema="Log4J-V2.2.xsd">
+    <Properties>
+        <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss z} %-5level %class{36}%L%M - %msg%xEx%n
+        </property><!-- 日志输出格式 -->
+        <property name="log-path">C:\task8ref\log</property>
+        <!-- ${web:rootDir}是项目根目录 -->
+        <!--        <property name="log-path">/usr/local/tomcat/apache-tomcat-9.0.44/webapps/SpringMVC-Task7/log</property>-->
+        <property name="every_file_size">5M</property><!-- 日志切割的最小单位 -->
+        <property name="output_log_level">debug</property><!-- 日志输出级别 -->
+    </Properties>
+
+    <Appenders>
+
+        <!-- 输出到控制台 name: 当前appender名 target: 目的位置-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- ThresholdFilter: 用于定义过滤机制 -->
+            <!-- level: 日志过滤级别 -->
+            <!-- onMatch="ACCEPT"：保留level 及以上级别的日志 -->
+            <!-- onMismatch="DENY"：丢掉level 以下级别的日志-->
+            <!-- onMatch 和 onMissmatch 可选值为：ACCEPT DENY NEUTRAL-->
+            <!--   Filters决定日志事件能否被输出。过滤条件有三个值：ACCEPT(接受)，DENY(拒绝)，NEUTRAL(中立)。    -->
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY" />
+
+            <!--这个都知道是输出日志的格式 -->
+            <PatternLayout pattern="${log_pattern}" />
+        </Console>
+
+        <!--将日志输出到文件中-->
+        <!-- debug级别日志文件 -->
+        <!-- RollingFile：日志滚动输出 -->
+        <!--每次大小超过size，则这size大小的日志会自动进行压缩，作为存档 -->
+        <RollingFile name="app_debug" fileName="${log-path}/debug/debug.log"
+                     filePattern="${log-path}/debug/debug-%d{yyyy-MM-dd}-%i.log.gz">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL" />
+            </Filters>
+            <PatternLayout pattern="${log_pattern}" />
+            <!-- SizeBasedTriggeringPolicy: 基于日志大小切分日志 -->
+            <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+        </RollingFile>
+
+        <!-- info级别日志文件 -->
+        <RollingFile name="app_info" fileName="${log-path}/info/info.log"
+                     filePattern="${log-path}/info/info-%d{yyyy-MM-dd}-%i.log.gz">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout pattern="${log_pattern}" />
+            <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+        </RollingFile>
+
+        <!-- error级别日志文件 -->
+        <RollingFile name="app_error" fileName="${log-path}/error/error.log"
+                     filePattern="${log-path}/error/error-%d{yyyy-MM-dd}-%i.log.gz">
+            <Filters>
+                 <!--  只输出error级别以上的日志  -->
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log_pattern}" />
+            <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+        </RollingFile>
+
+        <!-- warn级别日志文件 -->
+        <RollingFile name="app_warn" fileName="${log-path}/warn/warn.log"
+                     filePattern="${log-path}/warn/warn-%d{yyyy-MM-dd}-%i.log.gz">
+            <Filters>
+                <!--如果是error级别拒绝，设置 onMismatch="NEUTRAL" 可以让日志经过后续的过滤器-->
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <!--如果是warn级别的日志输出-->
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${log_pattern}" />
+            <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!--建立一个默认的root的logger，需要在root的level中指定输出的级别， -->
+        <root level="${output_log_level}">
+            <appender-ref ref="Console" />
+            <appender-ref ref="app_debug"/>
+            <appender-ref ref="app_info"/>
+            <appender-ref ref="app_error"/>
+            <appender-ref ref="app_warn"/>
+        </root>
+    </Loggers>
+</Configuration>

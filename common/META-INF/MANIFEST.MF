@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: httpmime-4.5.3.jar spring-tx-5.2.7.RELEASE.jar aliyun-java-s
+ dk-dysmsapi-1.1.0.jar spring-test-5.2.7.RELEASE.jar httpcore-4.4.13.jar
+  commons-io-2.5.jar tiles-servlet-3.0.7.jar spring-aop-5.2.7.RELEASE.ja
+ r bcprov-jdk15on-1.64.jar c3p0-0.9.5.2.jar freemarker-2.3.15.jar common
+ s-pool2-2.6.0.jar spring-core-5.2.7.RELEASE.jar aliyun-java-sdk-sts-3.0
+ .0.jar logging-interceptor-2.7.5.jar jackson-annotations-2.9.5.jar java
+ ssist-3.7.ga.jar springfox-spi-2.9.2.jar spring-beans-5.2.7.RELEASE.jar
+  stax-api-1.0.1.jar javax.mail-1.6.0.jar jcl-over-slf4j-1.7.6.jar tiles
+ -extras-3.0.7.jar okhttp-2.5.0.jar tiles-compat-3.0.7.jar okio-1.12.0.j
+ ar tiles-request-servlet-wildcard-1.0.6.jar aliyun-sdk-oss-3.8.0.jar ti
+ les-core-3.0.7.jar tiles-request-freemarker-1.0.6.jar commons-codec-1.1
+ 1.jar tiles-autotag-core-runtime-1.2.jar log4j-1.2.17.jar opentracing-u
+ til-0.33.0.jar swagger-models-1.5.20.jar org.jacoco.agent-0.8.5-runtime
+ .jar tiles-jsp-3.0.7.jar guava-20.0.jar tiles-request-api-1.0.6.jar spr
+ ing-expression-5.2.7.RELEASE.jar springfox-swagger-common-2.9.2.jar jax
+ b-api-2.3.1.jar jdom-1.1.jar spring-webmvc-5.2.7.RELEASE.jar standard-1
+ .1.2.jar spring-plugin-metadata-1.2.0.RELEASE.jar tiles-request-mustach
+ e-1.0.6.jar tiles-request-jsp-1.0.6.jar json-20170516.jar opentracing-n
+ oop-0.33.0.jar velocity-1.6.2.jar opentracing-api-0.33.0.jar commons-co
+ llections-3.2.2.jar spring-context-5.2.7.RELEASE.jar spring-data-redis-
+ 2.1.9.RELEASE.jar velocity-tools-2.0.jar jstl-1.2.jar aliyun-java-sdk-c
+ ore-4.5.1.jar reactive-streams-1.0.2.jar netty-transport-4.1.36.Final.j
+ ar mapstruct-1.2.0.Final.jar tiles-ognl-3.0.7.jar gson-2.8.6.jar netty-
+ codec-4.1.36.Final.jar tiles-request-servlet-1.0.6.jar slf4j-api-1.7.5.
+ jar commons-beanutils-1.9.3.jar netty-buffer-4.1.36.Final.jar swagger-a
+ nnotations-1.5.20.jar spring-context-support-5.2.7.RELEASE.jar commons-
+ lang-2.4.jar springfox-core-2.9.2.jar tiles-api-3.0.7.jar jjwt-0.9.1.ja
+ r tiles-template-3.0.7.jar spring-jcl-5.2.7.RELEASE.jar oro-2.0.8.jar t
+ iles-el-3.0.7.jar spring-web-5.2.7.RELEASE.jar springfox-swagger2-2.9.2
+ .jar tiles-mvel-3.0.7.jar protobuf-java-3.6.1.jar mybatis-spring-2.0.6.
+ jar activation-1.1.jar commons-digester-2.0.jar joda-time-2.9.9.jar net
+ ty-common-4.1.36.Final.jar spring-data-keyvalue-2.1.9.RELEASE.jar jacks
+ on-module-jaxb-annotations-2.9.5.jar springfox-spring-web-2.9.2.jar mve
+ l2-2.0.11.jar byte-buddy-1.8.12.jar jackson-core-2.9.5.jar classmate-1.
+ 4.0.jar aliyun-java-sdk-ecs-4.2.0.jar spring-plugin-core-1.2.0.RELEASE.
+ jar javax.activation-api-1.2.0.jar aliyun-java-sdk-ram-3.0.0.jar tiles-
+ request-velocity-1.0.6.jar mysql-connector-java-8.0.19.jar spring-data-
+ commons-2.1.9.RELEASE.jar jettison-1.1.jar mchange-commons-java-0.2.11.
+ jar commons-lang3-3.1.jar compiler-0.8.4.jar reactor-core-3.2.8.RELEASE
+ .jar mybatis-3.5.6.jar commons-fileupload-1.3.2.jar tiles-freemarker-3.
+ 0.7.jar tiles-velocity-3.0.7.jar cos_api-5.6.24.jar springfox-schema-2.
+ 9.2.jar aliyun-java-sdk-dm-3.1.0.jar fastjson-1.2.60.jar javaee-api-8.0
+ .jar spring-jdbc-5.2.7.RELEASE.jar lettuce-core-5.1.7.RELEASE.jar ognl-
+ 2.7.3.jar commons-logging-1.2.jar httpclient-4.5.10.jar spring-oxm-5.2.
+ 7.RELEASE.jar jackson-databind-2.9.5.jar netty-handler-4.1.36.Final.jar
+  qcloudsms-1.0.6.jar netty-resolver-4.1.36.Final.jar ini4j-0.5.4.jar te
+ ncentcloud-sdk-java-3.1.87.jar
+
